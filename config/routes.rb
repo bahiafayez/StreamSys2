@@ -1,7 +1,13 @@
 StreamSys2::Application.routes.draw do
+  get "ads/index"
+
+  get "ad/index"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  
+  resources :ads
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

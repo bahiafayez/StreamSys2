@@ -1,0 +1,15 @@
+<h1><%= @title %></h1>
+
+<%= will_paginate %>
+<table class="ads" >
+<tr class="ads">
+<th class="ads">Name</th>
+<th class="ads">Duration</th>
+<th class="ads">Categories</th>
+</tr>
+	 
+    <%= render @ads %> <!-- looks for partial _user.html.erb-->
+    
+
+</table>
+<%= will_paginate %>

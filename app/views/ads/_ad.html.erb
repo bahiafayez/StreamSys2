@@ -1,0 +1,20 @@
+<tr class="ads">
+	<td class="ads">
+  		<%= link_to ad.name, ad %>
+  	</td>
+  	<td class="ads">
+  		<%= ad.duration %>
+  	</td>
+  	<td class="ads">
+  		<% for i in 0..(ad.categories.size-1) %>
+	  		<% if i == (ad.categories.size-1) %>
+	  			<%= ad.categories[i].name %> 
+	  		<% else %>
+	  			<%= ad.categories[i].name %> , 
+	  		<% end %>
+  		<% end %>
+  	</td>
+  	
+</tr>
+
+<!--Or use do each.. but i used for because i wanted to access i-->
