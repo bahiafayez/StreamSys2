@@ -1,8 +1,8 @@
 class ResultingStream < ActiveRecord::Base
-  has_many :live_streams
-  has_many :proxies
-  belongs_to :client
+  belongs_to :live_stream
+  belongs_to :proxy
+  has_many :clients
   
-  has_many :playlists, :dependent => :destroy
-  has_many :ads, :through => :playlists
+  has_many :stream_playlists, :dependent => :destroy
+  has_many :playlists, :through => :stream_playlists
 end

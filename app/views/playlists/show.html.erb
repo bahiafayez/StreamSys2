@@ -1,0 +1,34 @@
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= @playlist.name %>
+      </h1>
+      
+       
+       
+      <!-- for microposts -->
+      <% unless @playlist.ad_playlists.empty? %>
+        <table class="microposts" summary="User microposts">
+          <tr><th>Advertisement</th>
+          <th>Time</th></tr>
+          <% @ads.each do |i| %>
+          <tr>
+          	<td><%= Ad.find(i.ad_id).name%></td>
+          	<td><%= i.time %></td>
+          </tr>
+          <%end%>
+          
+        </table>
+        <%= will_paginate @ads %>
+      <% end %>
+      
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @playlist.name %><br />
+      <strong>URL</strong>  <%= link_to playlist_path(@playlist), @playlist %><br />
+      <strong>Advertisements</strong> <%= @playlist.ad_playlists.count %>
+      
+    </td>
+  </tr>
+</table>

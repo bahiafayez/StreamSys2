@@ -1,6 +1,6 @@
 class Client < ActiveRecord::Base
-  has_many :proxies #, :dependent => :destroy #dependent so that when user
-  has_many :resulting_streams
+  belongs_to :proxy #, :dependent => :destroy #dependent so that when user
+  belongs_to :resulting_stream
   
   has_many :preferences, :dependent => :destroy
   has_many :categories, :through => :preferences

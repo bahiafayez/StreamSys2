@@ -1,4 +1,4 @@
 class Proxy < ActiveRecord::Base
-  belongs_to :resulting_stream
-  belongs_to :client
+  has_many :resulting_streams
+  has_many :clients
 end

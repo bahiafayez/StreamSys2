@@ -4,5 +4,8 @@ class AdsController < ApplicationController
     @title = "All Advertisements"
     @ads = Ad.paginate(:page => params[:page])
   end
+  
+
+  
 
 end
