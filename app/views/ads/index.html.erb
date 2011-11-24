@@ -4,12 +4,16 @@
 <table class="ads" >
 <tr class="ads">
 <th class="ads">Name</th>
+<th class="ads">URL</th>
 <th class="ads">Duration</th>
 <th class="ads">Categories</th>
 </tr>
 	 
-    <%= render @ads %> <!-- looks for partial _user.html.erb-->
+    <%= render @ads %> <!-- looks for partial _ad.html.erb-->
     
 
 </table>
 <%= will_paginate %>
+
+<!--<p><%= link_to "Add new Advertisement", {:action => 'new' }%></p>-->
+<%= link_to "Add new Advertiement", createad_path, :class => "signup_button round" %>

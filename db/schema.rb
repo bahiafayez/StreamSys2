@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20111116145216) do
   create_table "ads", :force => true do |t|
     t.integer  "duration"
     t.string   "name"
+    #t.integer   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

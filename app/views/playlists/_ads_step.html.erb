@@ -1,0 +1,28 @@
+<div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  
+  <div id="products">
+
+  	<table>
+  		
+  	<tr>
+  	<th><%= sortable "name", "Advertisement"%></th>
+  	<th><%= sortable "duration", "Duration"%></th>
+  	<th>Categories</th> <!-- also sort with categories later..-->
+ 
+  	<th>n</th>
+  	</tr>
+  	
+  		<%= render @advertisements %>
+  	
+  	</table>
+  	
+  </div>
+  <%= will_paginate @advertisements %>
+  <div class="actions">
+    <%= f.submit "Next" %>
+  </div>
+ 

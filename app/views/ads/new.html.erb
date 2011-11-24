@@ -1,0 +1,29 @@
+<h1>New Advertisement</h1>
+
+<%= form_for(@ad) do |f| %>
+	<%= render 'shared/error_messages' , :object => f.object %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :URL %><br />
+    <%= f.text_field :URL %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.text_field :duration %>
+  </div>
+  <div>
+  	<% @cats.each do |i|%>
+  	<%= check_box_tag "cats[#{i.id}]", 'yes', false, :class => 'accept_tos' %>
+  	<%= i.name %>
+  	<% end%>
+  </div>
+  <div>
+  Upload to Server 
+  </div>
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+<% end %>

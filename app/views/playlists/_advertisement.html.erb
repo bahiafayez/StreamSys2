@@ -1,0 +1,30 @@
+<!-- This is done for each element in the @ads list-->
+<tr class="ads">
+	<td class="ads">
+		<%= logger.debug 'in ad partial!!!'%>
+		<%= logger.debug advertisement %>
+  		<%= link_to advertisement.name, ad %>
+  	</td>
+  	<td class="ads">
+  		<%= advertisement.duration %>
+  	</td>
+  	<td class="ads">
+  		<% for i in 0..(advertisement.categories.size-1) %>
+	  		<% if i == (advertisement.categories.size-1) %>
+	  			<%= advertisement.categories[i].name %> 
+	  		<% else %>
+	  			<%= advertisement.categories[i].name %> , 
+	  		<% end %>
+  		<% end %>
+  	</td>
+  	<td>
+  				
+  		<%= check_box_tag "choice[#{advertisement.id}]", 'yes', check_state("#{advertisement.id}"), :class => 'accept_tos' %>
+  	
+  	</td>
+  	
+  	
+  	
+</tr>
+
+<!--Or use do each.. but i used for because i wanted to access i-->
