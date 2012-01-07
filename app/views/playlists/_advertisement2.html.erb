@@ -1,0 +1,14 @@
+<table>
+  		
+  	<tr>
+  	<th><%= sortable "name", "Advertisement"%></th>
+  	<th><%= sortable "duration", "Duration"%></th>
+  	<th>Categories</th> <!-- also sort with categories later..-->
+ 
+  	<th>n</th>
+  	</tr>
+  	
+  		<%= render :partial => "advertisement", :collection => @advertisements %>
+  	
+ </table>
+  	

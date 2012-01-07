@@ -1,28 +1,52 @@
 StreamSys2::Application.routes.draw do
   
+  get "users/new"
+
+  get "proxies/index"
+
+  get "proxies/new"
+
+  get "proxies/show"
+
+  get "categories/index"
+
+  get "categories/new"
+
+  get "categories/show"
+  
+  
+
   root :to => "pages#home"  
 
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users
+ 
 
   get "playlists/index"
   #get "playlists/create1"
 
   get "ads/index"
 
- 
-  
-  resources :ads
-  
+  resources :proxies
+  resources :categories
+  resources :ads 
   resources :playlists 
   
-   resources :live_streams 
-
+  resources :live_streams 
+  resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
+  
   match '/createad',  :to => 'ads#new'
   match '/createplaylist', :to=>'playlists#new'
+  match '/createcategory', :to=>'categories#new'
+  match '/createproxy', :to=>'proxies#new'
+  match '/createlivestream', :to=>'live_streams#new'
+  match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

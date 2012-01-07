@@ -1,2 +1,28 @@
-<h1>LiveStreams#show</h1>
-<p>Find me in app/views/live_streams/show.html.erb</p>
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1>
+        
+        <%= @title %>
+      </h1>
+      
+      <div>
+      	URL <%= @live_stream.URL %>
+      </div>
+      <div>
+      	Categories:
+      	
+      	<% for i in 0..(@live_stream.categories.size-1) %>
+	  		<% if i == (@live_stream.categories.size-1) %>
+	  			<%= @live_stream.categories[i].name %> 
+	  		<% else %>
+	  			<%= @live_stream.categories[i].name %> , 
+	  		<% end %>
+  		<% end %>
+  		
+      </div>
+      
+    </td>
+    
+  </tr>
+</table>

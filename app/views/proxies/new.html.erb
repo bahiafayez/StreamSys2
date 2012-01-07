@@ -1,0 +1,17 @@
+<h1><%=@title%></h1>
+
+<%= form_for(@proxy) do |f| %>
+	<%= render 'shared/error_messages' , :object => f.object %>
+  <div class="field">
+    <%= f.label :IP %><br />
+    <%= f.text_field :IP %>
+  </div>
+  <div class="field">
+    <%= f.label :Port %><br />
+    <%= f.text_field :Port %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+<% end %>

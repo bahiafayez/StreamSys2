@@ -1,0 +1,17 @@
+<!-- This is done for each element in the @ads list-->
+<tr class="ads">
+	<td class="ads">
+  		<%= link_to time.name, time %>
+  	</td>
+  	
+  	<td>
+  		
+  		<%= text_field_tag "text[#{time.id}]"%>
+  	</td>
+  	
+  	
+  	
+</tr>
+
+<!--Or use do each.. but i used for because i wanted to access i-->
+<!-- local variable and partial must have same name!!! -->

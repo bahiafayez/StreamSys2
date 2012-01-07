@@ -16,7 +16,7 @@ class Playlist < ActiveRecord::Base
   end
   
   def steps
-    %w[ads time]
+    %w[ads time] #last
   end
   
   def next_step

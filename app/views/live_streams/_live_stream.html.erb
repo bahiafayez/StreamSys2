@@ -1,0 +1,21 @@
+<tr class="ads">
+	<td class="ads">
+  		<%= link_to live_stream.name, live_stream %>
+  	</td>
+  	<td class="ads">
+  		<%= live_stream.URL %>
+  	</td>
+  	
+  	<td class="ads">
+  		<% for i in 0..(live_stream.categories.size-1) %>
+	  		<% if i == (live_stream.categories.size-1) %>
+	  			<%= live_stream.categories[i].name %> 
+	  		<% else %>
+	  			<%= live_stream.categories[i].name %> , 
+	  		<% end %>
+  		<% end %>
+  	</td>
+  	
+</tr>
+
+<!--Or use do each.. but i used for because i wanted to access i-->

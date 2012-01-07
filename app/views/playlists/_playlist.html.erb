@@ -1,6 +1,10 @@
 <tr >
 	<td >
   		<%= link_to playlist.name, playlist %>
+  		<%= link_to "delete", playlist, :method => :delete,
+                                     :confirm => "You sure?",
+                                     :title => playlist.name %>
+                                     
   	</td>
   	
   	

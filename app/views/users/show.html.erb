@@ -1,0 +1,18 @@
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= @title %>
+      </h1>
+      
+       
+       
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @user.username %><br />
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+      
+      
+    </td>
+  </tr>
+</table>

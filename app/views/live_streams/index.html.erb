@@ -1,0 +1,19 @@
+<h1><%= @title %></h1>
+
+<%= will_paginate %>
+<table class="ads" >
+<tr class="ads">
+<th class="ads">Name</th>
+<th class="ads">URL</th>
+
+<th class="ads">Categories</th>
+</tr>
+	 
+    <%= render @live_streams %> <!-- looks for partial _ad.html.erb-->
+    
+
+</table>
+<%= will_paginate %>
+
+<!--<p><%= link_to "Add new Advertisement", {:action => 'new' }%></p>-->
+<%= link_to "Add new Live Stream", createlivestream_path, :class => "signup_button round" %>

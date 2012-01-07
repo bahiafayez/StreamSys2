@@ -1,5 +1,38 @@
 class LiveStreamsController < ApplicationController
   
+    def index
+    @title = "All Live Streams"
+    @live_streams = LiveStream.paginate(:page => params[:page])
+  end
+  
+  def new
+    @title ="Add Live Stream"
+    @live_stream=LiveStream.new
+    @cats=Category.all
+  end
+  
+  def create
+    @live_stream = LiveStream.new(params[:live_stream])
+   
+    if @live_stream.save
+      # Handle a successful save.
+      #sign_in2 @user #method in sessions_helper
+      flash[:success] = "Welcome to the Sample App!"
+      @categories= params[:cats]
+    logger.debug "HEREEEEEEEEEEEEEEEEEEEEEEEEE"
+    logger.debug params[:cats]
+    for x in params[:cats]
+      logger.debug x[0]
+      @cat = StreamType.new(:live_stream_id => @live_stream.id, :category_id => x[0])
+      @cat.save
+    end
+      redirect_to @live_stream
+    else
+      #@title = "Sign up"
+      render 'new'
+    end
+  end
+  
     def show
     #What this means in the context of users—which we’re now thinking 
     #of as a Users resource—is that we should view the user with id 1 
@@ -12,7 +45,8 @@ class LiveStreamsController < ApplicationController
       
       respond_to do |format|
         format.html do
-          
+           @live_stream = LiveStream.find(params[:id])
+          @title = @live_stream.name
         end
         format.json do
           if @moment.nil?
@@ -30,7 +64,7 @@ class LiveStreamsController < ApplicationController
               #@RSStream.each do |i|
               #end
               if @RSStream.nil? || @RSStream.empty?
-                render :json => ({"moment"=>@RS.first.streamURL,"ads"=>"empty", "bla" => "bla"})
+                render :json => ({"moment"=>@RS.first.streamURL,"sPlaylist"=>@RS.first.index_file,"ads"=>"empty", "bla" => "bla"})
               else
               
                 @Playlist= AdPlaylist.all(:conditions => {:playlist_id => @RSStream.first.playlist_id})
@@ -38,7 +72,14 @@ class LiveStreamsController < ApplicationController
                 @hash ={}
                 @Playlist.each do |i|
                   @arr << i.ad_id
-                  @hash[Ad.all(:conditions => {:id => i.ad_id}).first.URL]=i.time
+                  logger.debug "@arr is "
+                  key=Ad.all(:conditions => {:id => i.ad_id}).first.index_file
+                  
+                  if @hash.has_key?(key)
+                    @hash[key]<<[Ad.all(:conditions => {:id => i.ad_id}).first.URL, i.time, Ad.all(:conditions => {:id => i.ad_id}).first.duration]
+                  else
+                    @hash[key]=[[Ad.all(:conditions => {:id => i.ad_id}).first.URL, i.time, Ad.all(:conditions => {:id => i.ad_id}).first.duration]]
+                   end
                 end
                 @adNames=[]
                
@@ -46,7 +87,7 @@ class LiveStreamsController < ApplicationController
                   @adNames << Ad.all(:conditions => {:id => i}).first.name  
                 end
               
-                render :json => ({"moment"=>@RS.first.streamURL,"ads"=> @adNames, "ad_urls" => @hash, "bla" => "bla"})
+                render :json => ({"moment"=>@RS.first.streamURL,"sPlaylist"=>@RS.first.index_file,"ads"=> @adNames, "ad_urls" => @hash , "bla" => "bla"})
               end
             end
           end 

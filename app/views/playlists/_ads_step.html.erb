@@ -3,26 +3,11 @@
     <%= f.text_field :name %>
   </div>
   
-  
   <div id="products">
+  	<%= render :partial => "advertisement2", :object => @advertisements %>
+  </div>
 
-  	<table>
-  		
-  	<tr>
-  	<th><%= sortable "name", "Advertisement"%></th>
-  	<th><%= sortable "duration", "Duration"%></th>
-  	<th>Categories</th> <!-- also sort with categories later..-->
- 
-  	<th>n</th>
-  	</tr>
-  	
-  		<%= render @advertisements %>
-  	
-  	</table>
-  	
-  </div>
-  <%= will_paginate @advertisements %>
-  <div class="actions">
-    <%= f.submit "Next" %>
-  </div>
+  <!-- will_paginate @advertisements dont forget the angle braces percentage and equal signs --> 
+  
+  
  

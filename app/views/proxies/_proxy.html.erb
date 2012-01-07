@@ -1,0 +1,15 @@
+<tr >
+	<td >
+  		<%= link_to proxy.IP , proxy %>
+  		<%= link_to "delete", proxy, :method => :delete,
+                                     :confirm => "You sure?",
+                                     :title => proxy.IP %>
+                                     
+  	</td>
+  	<td>
+  		 <%= proxy.Port %>
+  	</td>
+  	
+</tr>
+
+<!--Or use do each.. but i used for because i wanted to access i-->

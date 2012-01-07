@@ -1,0 +1,16 @@
+<h1><%= @title %></h1>
+
+<%= will_paginate %>
+<table  >
+<tr >
+<th >Name</th>
+
+</tr>
+	 
+    <%= render @categories %> <!-- looks for partial _user.html.erb-->
+    
+
+</table>
+<%= will_paginate %>
+
+<%= link_to "Create new Category", createcategory_path, :class => "signup_button round" %>

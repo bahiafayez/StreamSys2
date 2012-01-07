@@ -1,0 +1,13 @@
+<tr >
+	<td >
+  		<%= link_to category.name, category %>
+  		<%= link_to "delete", category, :method => :delete,
+                                     :confirm => "You sure?",
+                                     :title => category.name %>
+                                     
+  	</td>
+  	
+  	
+</tr>
+
+<!--Or use do each.. but i used for because i wanted to access i-->

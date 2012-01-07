@@ -12,7 +12,14 @@
       	URL <%= @ad.URL %>
       </div>
       <div>
-      	Categories
+      	Categories:
+      	<% for i in 0..(@ad.categories.size-1) %>
+	  		<% if i == (@ad.categories.size-1) %>
+	  			<%= @ad.categories[i].name %> 
+	  		<% else %>
+	  			<%= @ad.categories[i].name %> , 
+	  		<% end %>
+  		<% end %>
       </div>
       
     </td>

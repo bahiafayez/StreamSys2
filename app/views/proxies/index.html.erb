@@ -1,0 +1,17 @@
+<h1><%= @title %></h1>
+
+<%= will_paginate %>
+<table  >
+<tr >
+<th >IP</th>
+<th >Port</th>
+
+</tr>
+	 
+    <%= render @proxies %> <!-- looks for partial _user.html.erb-->
+    
+
+</table>
+<%= will_paginate %>
+
+<%= link_to "Create new Proxy", createproxy_path, :class => "signup_button round" %>

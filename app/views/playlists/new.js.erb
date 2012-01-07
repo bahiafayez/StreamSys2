@@ -1,1 +1,1 @@
-$("#products").html("<%= escape_javascript(render("ad")) %>");
+$("#products").html("<%= escape_javascript(render(:partial => "advertisement2", :object => @advertisements)) %>");
