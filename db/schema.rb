@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20111222110303) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "ad_playlists", :force => true do |t|
-    t.integer  "time"
+    t.string   "time",        :limit => nil
     t.integer  "playlist_id"
     t.integer  "ad_id"
     t.datetime "created_at"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20111222110303) do
   end
 
   create_table "preferences", :force => true do |t|
-    t.integer  "client_id"
+    t.integer  "user_id"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20111222110303) do
   end
 
   create_table "users", :force => true do |t|
+    t.string   "salt",       :limit => nil
     t.string   "username"
     t.string   "password"
     t.datetime "created_at"
