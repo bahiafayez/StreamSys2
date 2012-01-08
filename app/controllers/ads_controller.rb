@@ -16,7 +16,8 @@ class AdsController < ApplicationController
     if params[:id]=="now"
       logger.debug "HEREEEEEEEEEEEEEEEEEEEEEEEEE IN ADD_AD"
       
-      time1 = Time.new
+      time1=Time.now.in_time_zone("Egypt")
+      #time1 = Time.new
       minutes= time1.min + 1  #3ashan yl7a2!
       hours= time1.hour
       day=time1.day
