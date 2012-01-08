@@ -76,9 +76,9 @@ class LiveStreamsController < ApplicationController
                   key=Ad.all(:conditions => {:id => i.ad_id}).first.index_file
                   
                   if @hash.has_key?(key)
-                    @hash[key]<<[Ad.all(:conditions => {:id => i.ad_id}).first.URL, i.time, Ad.all(:conditions => {:id => i.ad_id}).first.duration]
+                    @hash[key]<<[Ad.all(:conditions => {:id => i.ad_id}).first.URL, i.time, Ad.all(:conditions => {:id => i.ad_id}).first.duration, Ad.all(:conditions => {:id => i.ad_id}).first.region]
                   else
-                    @hash[key]=[[Ad.all(:conditions => {:id => i.ad_id}).first.URL, i.time, Ad.all(:conditions => {:id => i.ad_id}).first.duration]]
+                    @hash[key]=[[Ad.all(:conditions => {:id => i.ad_id}).first.URL, i.time, Ad.all(:conditions => {:id => i.ad_id}).first.duration, Ad.all(:conditions => {:id => i.ad_id}).first.region]]
                    end
                 end
                 @adNames=[]
