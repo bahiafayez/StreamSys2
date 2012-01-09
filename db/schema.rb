@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107191220) do
+ActiveRecord::Schema.define(:version => 20120109103434) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20120107191220) do
   end
 
   create_table "ads", :force => true do |t|
+    t.string   "region",     :limit => nil
     t.text     "index_file"
     t.text     "URL"
     t.integer  "duration"
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20120107191220) do
     t.integer  "live_stream_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "stream_playlists", :force => true do |t|
